@@ -1,12 +1,13 @@
-export const Navbar = ({ isLoggedIn }) => {
-    isLoggedIn = true;
+import React from "react";
+
+export const Navbar = () => {
+    let isLoggedIn = true; //TODO: replace by actual authentication 
     return (
         <>
             <nav className="navbar navbar-expand-lg my-navbar">
                 <div className="container-fluid">
-                    {isLoggedIn && <a className="nav-item btn btn-primary" href="/">Odhlasit sa</a>}
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <a className="nav-item btn btn-primary" href="/">{isLoggedIn ? "Odhlásiť sa" : "Prihlásiť sa"}</a>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -16,22 +17,22 @@ export const Navbar = ({ isLoggedIn }) => {
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle active" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Temy
+                                    Témy
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="/thesises">Vyhladaj temu</a></li>
-                                    <li><a class="dropdown-item" href="/export_files">Odovzdanie suborov</a></li>
-                                    <li><a class="dropdown-item" href="/">Informacie ku statnej skuske</a></li>
+                                    <li><a class="dropdown-item" href="/thesises">Vyhľadaj tému</a></li>
+                                    <li><a class="dropdown-item" href="/export_files">Odovzdanie súborov</a></li>
+                                    <li><a class="dropdown-item" href="/">Informácie ku štátnej skúške</a></li>
                                 </ul>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link active" href="/users">Pouzivatelia</a>
+                                <a className="nav-link active" href="/users">Používatelia</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link active" href="/finished_thesises">Vyhladaj pracu</a>
+                                <a className="nav-link active" href="/finished_thesises">Vyhľadaj prácu</a>
                             </li>
                             {isLoggedIn && <li className="nav-item">
-                                <a className="nav-link active" href="/my_profile">Moj profil</a>
+                                <a className="nav-link active" href="/my_profile">Môj profil</a>
                             </li>}
                         </ul>
                     </div>
