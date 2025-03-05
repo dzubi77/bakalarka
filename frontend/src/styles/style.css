@@ -3,6 +3,12 @@ html, body {
     height: 100%;
 }
 
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 .header-container {
     display: flex;
     background-color: #ffb81c;
@@ -45,5 +51,14 @@ html, body {
 
 /*navbar style*/
 .my-navbar {
-    background-color: darkgray;
+    background-color: #3b6790;
+}
+
+/*footer style*/
+.footer-container {
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    margin-top: auto;
 }

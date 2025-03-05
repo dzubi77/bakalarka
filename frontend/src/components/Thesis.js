@@ -1,5 +1,6 @@
 import React from "react";
 
+//reprezentuje jednu záverečnú prácu zo zoznamu záverečných prác
 export const GeneralThesis = () => {
     return (
         <>

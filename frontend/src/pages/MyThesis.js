@@ -1,5 +1,6 @@
 import React from "react";
 
+//reprezentuje podstránku s priradenou témou (ak existuje priradená téma)
 export const MyThesis = () => {
     return (
         <>

@@ -1,7 +1,8 @@
 import React from "react";
 
+//reprezentuje hlavný navigačný panel aplikácie
 export const Navbar = () => {
-    let isLoggedIn = true; //TODO: replace by actual authentication 
+    let isLoggedIn = false; //TODO: replace by actual authentication 
     return (
         <>
             <nav className="navbar navbar-expand-lg my-navbar">

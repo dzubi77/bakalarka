@@ -15,23 +15,25 @@ import { DocumentsPage, FileExport } from "./pages/Documents";
 function App() {
   return (
     <>
-      <Header />
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/documents" element={<PrivateRoute><DocumentsPage /></PrivateRoute>} />
-        <Route path="/export_files" element={<PrivateRoute><FileExport /></PrivateRoute>} />
+      <div className="app-container">
+        <Header />
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/documents" element={<PrivateRoute><DocumentsPage /></PrivateRoute>} />
+          <Route path="/export_files" element={<PrivateRoute><FileExport /></PrivateRoute>} />
         
-        <Route path="/thesises" element={<PrivateRoute><ThesisList /></PrivateRoute>} />
-        <Route path="/thesises/:thesisId" element={<PrivateRoute><GeneralThesis /></PrivateRoute>} />
-        <Route path="/finished_thesises" element={<PrivateRoute></PrivateRoute>} />
-        <Route path="/finished_thesises/:thesisId" element={<PrivateRoute></PrivateRoute>} />
-        <Route path="/my_thesis" element={<PrivateRoute><MyThesis /></PrivateRoute>} />
+          <Route path="/thesises" element={<PrivateRoute><ThesisList /></PrivateRoute>} />
+          <Route path="/thesises/:thesisId" element={<PrivateRoute><GeneralThesis /></PrivateRoute>} />
+          <Route path="/finished_thesises" element={<PrivateRoute></PrivateRoute>} />
+          <Route path="/finished_thesises/:thesisId" element={<PrivateRoute></PrivateRoute>} />
+          <Route path="/my_thesis" element={<PrivateRoute><MyThesis /></PrivateRoute>} />
 
-        <Route path="/my_profile" element={<PrivateRoute><MyProfile /></PrivateRoute>} />
-        <Route path="/users" element={<PrivateRoute><UserList /></PrivateRoute>} />
-      </Routes>
-      <Footer />
+          <Route path="/my_profile" element={<PrivateRoute><MyProfile /></PrivateRoute>} />
+          <Route path="/users" element={<PrivateRoute><UserList /></PrivateRoute>} />
+        </Routes>
+        <Footer />
+      </div>
     </>
   );
 }

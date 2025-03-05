@@ -1,6 +1,12 @@
 import React from "react";
 
-export const FilterThesis = () => {
+//funkcia pre zobrazenie prác na základe filtrov 
+export const filterThesises = () => {
+
+}
+
+//reprezentuje panel pre filtráciu záverečných prác
+export const ThesisFilter = () => {
     return (
         <>
         Here will be filter for thesises. 
@@ -8,6 +14,7 @@ export const FilterThesis = () => {
     );
 }
 
+// reprezentuje zoznam záverečných prác
 export const ThesisList = () => {
     return (
         <>

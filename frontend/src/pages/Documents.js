@@ -1,5 +1,6 @@
 import React from "react";
 
+//reprezentuje podstránku "Dokumenty" 
 export const DocumentsPage = () => {
     return (
         <>
@@ -8,6 +9,7 @@ export const DocumentsPage = () => {
     );
 }
 
+// reprezentuje podstránku na nahrávanie súborov
 export const FileExport = () => {
     return (
         <>

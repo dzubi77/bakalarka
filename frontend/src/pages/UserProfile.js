@@ -1,6 +1,6 @@
 import React from "react";
 
-//general user profile
+//reprezentuje profil používateľa zo zoznamu používateľov
 export const UserProfile = () => {
     return (
         <>
