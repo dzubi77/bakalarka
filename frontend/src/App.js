@@ -20,17 +20,17 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<LoginPage />} />
-          <Route path="/documents" element={<PrivateRoute><DocumentsPage /></PrivateRoute>} />
-          <Route path="/export_files" element={<PrivateRoute><FileExport /></PrivateRoute>} />
+          <Route path="/documents" element={<DocumentsPage />} />
+          <Route path="/export_files" element={<FileExport />} />
         
-          <Route path="/thesises" element={<PrivateRoute><ThesisList /></PrivateRoute>} />
-          <Route path="/thesises/:thesisId" element={<PrivateRoute><GeneralThesis /></PrivateRoute>} />
+          <Route path="/thesises" element={<ThesisList />} />
+          <Route path="/thesises/:thesisId" element={<GeneralThesis />} />
           <Route path="/finished_thesises" element={<PrivateRoute></PrivateRoute>} />
           <Route path="/finished_thesises/:thesisId" element={<PrivateRoute></PrivateRoute>} />
-          <Route path="/my_thesis" element={<PrivateRoute><MyThesis /></PrivateRoute>} />
+          <Route path="/my_thesis" element={<MyThesis />} />
 
-          <Route path="/my_profile" element={<PrivateRoute><MyProfile /></PrivateRoute>} />
-          <Route path="/users" element={<PrivateRoute><UserList /></PrivateRoute>} />
+          <Route path="/my_profile" element={<MyProfile />} />
+          <Route path="/users" element={<UserList />} />
         </Routes>
         <Footer />
       </div>

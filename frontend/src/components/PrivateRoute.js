@@ -4,6 +4,7 @@ import React from "react";
 export const PrivateRoute = ({ children }) => {
     return localStorage.getItem('token') 
         ? children : <>
-            Unauthorized!
+            Pre pristup do tejto casti je potrebne
+            <a href="/">sa prihlásiť!</a> 
         </>;
 }

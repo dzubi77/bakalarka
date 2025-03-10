@@ -1,4 +1,6 @@
 import React from "react";
+import '../styles/one_column_style.css'
+import '../styles/login_style.css'
 
 //funkcia pre prihlásenie sa do systému (overenie voci ldap alebo db na strane backendu)
 const handleLogin = () => {
@@ -9,10 +11,10 @@ const handleLogin = () => {
 export const LoginPage = () => {
     return (
         <>
-            <div className="login-page-main">
-                <div className="login-form-content">
-                    <p>Pre pokračovanie sa najprv prosím prihláste: </p>
-                    <form>
+            <div className="main-container">
+                <div className="content-container">
+                    <p><strong>Pre pokračovanie sa najprv prosím prihláste: </strong></p>
+                    <form className="personal-info-container">
                         <table>
                             <tbody>
                                 <tr>

@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/two_column_style.css'
 
 //funkcia pre zobrazenie prác na základe filtrov 
 export const filterThesises = () => {
@@ -9,7 +10,96 @@ export const filterThesises = () => {
 export const ThesisFilter = () => {
     return (
         <>
-        Here will be filter for thesises. 
+            <div className="filter-content-container">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Názov témy</td>
+                            <td><input type="text"/></td>
+                        </tr>
+                        <tr>
+                            <td>Meno vedúceho alebo tútora</td>
+                            <td><input type="text"/></td>
+                        </tr>
+                        <tr>
+                            <td>Predmet alebo obsah</td>
+                            <td><input type="text"/></td>
+                        </tr>
+                        <tr>
+                            <td>Stupeň</td>
+                            <td>
+                                <select className="select-filter">
+                                    <option value="none"></option>
+                                    <option value="bc">Bakalár</option>
+                                    <option value="ing">Inžinier</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Katedra</td>
+                            <td>
+                                <select className="select-filter">
+                                    <option value="none"></option>
+                                    <option value="kis">KIS</option>
+                                    <option value="ki">KI</option>
+                                    <option value="kmnt">KMNT</option>
+                                    <option value="kmme">KMME</option>
+                                    <option value="kmmoa">KMMOA</option>
+                                    <option value="kst">KST</option>
+                                    <option value="ktk">KTK</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Stav práce</td>
+                            <td>
+                                <select className="select-filter">
+                                    <option value="none"></option>
+                                    <option value="not_assigned">Nezadané</option>
+                                    <option value="assigned">Priradené</option>
+                                    <option value="finished">Skončené</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jazyk práce</td>
+                            <td>
+                                <select className="select-filter">
+                                    <option value="none"></option>
+                                    <option value="sk">slovenský</option>
+                                    <option value="en">anglický</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Počet tém na stránku</td>
+                            <td>
+                                <select className="select-filter">
+                                    <option value="none"></option>
+                                    <option value="bc">Bakalár</option>
+                                    <option value="ing">Inžinier</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Trieď podľa</td>
+                            <td>
+                                <select className="my-select">
+                                    <option value="title">Názov</option>
+                                    <option value="teacher">Učiteľ</option>
+                                    <option value="degree">Stupeň</option>
+                                    <option value="department">Katedra</option>
+                                </select>
+                                <select>
+                                    <option value="asc">Vzostupne</option>
+                                    <option value="desc">Zostupne</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button className="btn btn-primary my-btn" onClick={filterThesises}>Vyhľadaj témy</button>
+            </div>
         </>
     );
 }
@@ -18,7 +108,14 @@ export const ThesisFilter = () => {
 export const ThesisList = () => {
     return (
         <>
-        Here will be displayed thesises //with or without filters. 
+            <div className="main-container">
+                <div className="filter-container">
+                    <ThesisFilter />
+                </div>
+                <div className="list-container">
+                    Here will be displayed thesises //with or without filters.
+                </div>
+            </div>
         </>
     );
 }

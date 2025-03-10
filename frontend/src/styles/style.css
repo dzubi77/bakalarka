@@ -51,8 +51,59 @@ html, body {
 
 /*navbar style*/
 .my-navbar {
-    background-color: #3b6790;
+    background-color: #443627; 
+    padding: 10px 20px; 
 }
+
+.my-navbar .nav-item {
+    margin-right: 15px; 
+}
+
+.my-navbar .nav-link {
+    color: white !important; 
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.my-navbar .nav-link:hover {
+    color: #f8f9fa !important; 
+    text-decoration: underline;
+}
+
+.my-navbar .btn {
+    color: black !important; 
+    background-color: #EFDCAB; 
+    border: none;
+    padding: 8px 15px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.my-navbar .btn:hover {
+    background-color: #0056b3; 
+}
+
+.my-navbar .dropdown-menu {
+    background-color: #443627; 
+    border: none;
+}
+
+.my-navbar .dropdown-item {
+    color: white !important; 
+    transition: background-color 0.3s ease-in-out;
+}
+
+.my-navbar .dropdown-item:hover {
+    background-color: #495057; 
+}
+
+.navbar-toggler {
+    border-color: white;
+}
+
+.navbar-toggler-icon {
+    filter: invert(1); 
+}
+
 
 /*footer style*/
 .footer-container {

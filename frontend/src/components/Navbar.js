@@ -2,12 +2,12 @@ import React from "react";
 
 //reprezentuje hlavný navigačný panel aplikácie
 export const Navbar = () => {
-    let isLoggedIn = false; //TODO: replace by actual authentication 
+    let isLoggedIn = true; //TODO: replace by actual authentication, either LDAP or against DB
     return (
         <>
             <nav className="navbar navbar-expand-lg my-navbar">
                 <div className="container-fluid">
-                    <a className="nav-item btn btn-primary" href="/">{isLoggedIn ? "Odhlásiť sa" : "Prihlásiť sa"}</a>
+                    <a className="nav-item btn" href="/">{isLoggedIn ? "Odhlásiť sa" : "Domov"}</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -21,6 +21,7 @@ export const Navbar = () => {
                                     Témy
                                 </a>
                                 <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/my_thesis">Priradená tema</a></li>
                                     <li><a class="dropdown-item" href="/thesises">Vyhľadaj tému</a></li>
                                     <li><a class="dropdown-item" href="/export_files">Odovzdanie súborov</a></li>
                                     <li><a class="dropdown-item" href="/">Informácie ku štátnej skúške</a></li>
