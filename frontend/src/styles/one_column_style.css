@@ -9,8 +9,14 @@
 
 .content-container {
     margin: 0 auto;
-    width: 90%;
-    max-width: 600px;
+    width: 75%;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.login-content-container {
+    margin: 0 auto;
     background: white;
     padding: 20px;
     border-radius: 12px;
@@ -45,12 +51,21 @@ td:first-child {
     color: #555;
 }
 
+.content-inner-container {
+    margin-bottom: 1%;
+    width: 100%;
+    border-radius: 5px;
+    background: #e5e1da;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
 .contact-container {
     margin-top: 20px;
 }
 
 @media (max-width: 480px) {
     .content-container {
+        width: 100%;
         padding: 15px;
     }
 

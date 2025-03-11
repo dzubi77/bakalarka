@@ -12,7 +12,7 @@ export const LoginPage = () => {
     return (
         <>
             <div className="main-container">
-                <div className="content-container">
+                <div className="login-content-container">
                     <p><strong>Pre pokračovanie sa najprv prosím prihláste: </strong></p>
                     <form className="personal-info-container">
                         <table>

@@ -35,7 +35,9 @@ export const MyProfile = () => {
                                 </tr>
                                 <tr>
                                     <td>Priradená téma</td>
-                                    <td>data</td>
+                                    <td>
+                                        <a href="/my_thesis">data</a> {/*ak neni priradena, nezobrazit link*/}
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
