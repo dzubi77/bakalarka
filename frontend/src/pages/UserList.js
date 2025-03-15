@@ -81,14 +81,14 @@ export const UserFilter = () => {
                                 <tr>
                                     <td>Trieď podľa</td>
                                     <td>
-                                        <select className="my-select">
+                                        <select className="my-select select-filter">
                                             <option value="name">mena</option>
                                             <option value="group">katedry/skupiny</option>
                                             <option value="degree">odboru</option>
                                         </select>
-                                        <select>
-                                            <option value="asc">Vzostupne</option>
-                                            <option value="desc">Zostupne</option>
+                                        <select className="select-filter">
+                                            <option value="asc">vzostupne</option>
+                                            <option value="desc">zostupne</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -104,7 +104,7 @@ export const UserFilter = () => {
     );
 }
 
-// reprezentuje stránku so zoznamom používateľov
+//reprezentuje stránku so zoznamom používateľov
 export const UserList = () => {
     return (
         <>

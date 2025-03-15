@@ -50,6 +50,12 @@ export const ThesisFilter = ({ isFinished }) => {
                                     <td>Predmet alebo obsah</td>
                                     <td><input type="text"/></td>
                                 </tr>
+                                {isFinished && (
+                                    <tr>
+                                        <td>Študent</td>
+                                        <td><input type="text"/></td>
+                                    </tr>
+                                )} 
                                 <tr>
                                     <td>Stupeň</td>
                                     <td>
@@ -79,10 +85,10 @@ export const ThesisFilter = ({ isFinished }) => {
                                     <td>Stav práce</td>
                                     <td>
                                         <select className="select-filter">
-                                            <option value="none"></option>
                                             <option value="not_assigned">Nezadané</option>
                                             <option value="assigned">Priradené</option>
                                             <option value="finished">Skončené</option>
+                                            <option value="none"></option>
                                         </select>
                                     </td>
                                 </tr>
@@ -90,7 +96,6 @@ export const ThesisFilter = ({ isFinished }) => {
                                     <td>Jazyk práce</td>
                                     <td>
                                         <select className="select-filter">
-                                            <option value="none"></option>
                                             <option value="sk">slovenský</option>
                                             <option value="en">anglický</option>
                                         </select>
@@ -135,13 +140,13 @@ export const ThesisFilter = ({ isFinished }) => {
     );
 }
 
-// reprezentuje zoznam záverečných prác
-export const ThesisList = () => {
+//reprezentuje stránku so zoznamom záverečných prác
+export const ThesisList = ({isFinished}) => {
     return (
         <>
             <div className="main-container">
                 <div className="filter-container">
-                    <ThesisFilter isFinished={false}/>
+                    <ThesisFilter isFinished={isFinished}/>
                 </div>
                 <div className="list-container">
                     Here will be displayed thesises //with or without filters.

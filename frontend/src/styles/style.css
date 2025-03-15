@@ -79,7 +79,8 @@ html, body {
 }
 
 .my-navbar .btn:hover {
-    background-color: #0056b3; 
+    background-color: #6b490b; 
+    color: white !important;
 }
 
 .my-navbar .dropdown-menu {

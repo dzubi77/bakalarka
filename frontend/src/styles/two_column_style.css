@@ -39,10 +39,18 @@
 
 .my-select {
     margin-right: 3px;
+    margin-bottom: 5px;
 }
 
 .my-btn {
     margin-top: 5px;
+    background-color: #EFDCAB;
+    color: black;
+}
+
+.my-btn:hover {
+    background-color: #6b490b;
+    color: white;
 }
 
 .thesis-filter-container {

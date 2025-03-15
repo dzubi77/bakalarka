@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 //reprezentuje hlavný navigačný panel aplikácie
 export const Navbar = () => {
     let isLoggedIn = true; //TODO: replace by actual authentication, either LDAP or against DB
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
     return (
         <>
             <nav className="navbar navbar-expand-lg my-navbar">
@@ -16,15 +18,19 @@ export const Navbar = () => {
                             <li className="nav-item">
                                 <a className="nav-link active" href="/documents">Dokumenty</a>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li
+                                className={`nav-item dropdown ${dropdownOpen ? "show" : ""}`}
+                                onMouseEnter={() => setDropdownOpen(true)}
+                                onMouseLeave={() => setDropdownOpen(false)}
+                            >
                                 <a class="nav-link dropdown-toggle active" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Témy
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="/my_thesis">Priradená tema</a></li>
-                                    <li><a class="dropdown-item" href="/thesises">Vyhľadaj tému</a></li>
-                                    <li><a class="dropdown-item" href="/export_files">Odovzdanie súborov</a></li>
-                                    <li><a class="dropdown-item" href="/">Informácie ku štátnej skúške</a></li>
+                                <ul className={`dropdown-menu ${dropdownOpen ? "show" : ""}`}>
+                                    <li><a className="dropdown-item" href="/my_thesis">Priradená téma</a></li>
+                                    <li><a className="dropdown-item" href="/thesises">Vyhľadaj tému</a></li>
+                                    <li><a className="dropdown-item" href="/export_files">Odovzdanie súborov</a></li>
+                                    <li><a className="dropdown-item" href="/">Informácie ku štátnej skúške</a></li>
                                 </ul>
                             </li>
                             <li className="nav-item">

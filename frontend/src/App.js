@@ -2,7 +2,6 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Header } from "./components/Header";
-import { PrivateRoute } from "./components/PrivateRoute";
 import { LoginPage } from "./pages/Login";
 import { MyThesis } from "./pages/MyThesis";
 import { MyProfile } from "./pages/MyProfile";
@@ -19,14 +18,14 @@ function App() {
         <Header />
         <Navbar />
         <Routes>
+          {/*add PrivateRoute component :D*/}
           <Route path="/" element={<LoginPage />} />
           <Route path="/documents" element={<DocumentsPage />} />
           <Route path="/export_files" element={<FileExport />} />
         
-          <Route path="/thesises" element={<ThesisList />} />
+          <Route path="/thesises" element={<ThesisList isFinished={false} />} />
           <Route path="/thesises/:thesisId" element={<GeneralThesis />} />
-          <Route path="/finished_thesises" element={<PrivateRoute></PrivateRoute>} />
-          <Route path="/finished_thesises/:thesisId" element={<PrivateRoute></PrivateRoute>} />
+          <Route path="/finished_thesises" element={<ThesisList isFinished={true} />} />
           <Route path="/my_thesis" element={<MyThesis />} />
 
           <Route path="/my_profile" element={<MyProfile />} />

@@ -31,10 +31,3 @@ export const GeneralThesis = () => {
         </>
     );
 }
-
-export const FinishedThesis = () => {
-    return (
-        <>
-        </>
-    );
-}
