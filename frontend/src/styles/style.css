@@ -28,6 +28,11 @@ html, body {
     object-fit: cover;
 }
 
+/*pagination panel*/
+.pagination-container {
+    margin-left: 10%;
+}
+
 @media (max-width: 768px) {
     .header {
         height: 8%;
@@ -46,6 +51,10 @@ html, body {
 
     .logo-container {
         width: 50%; 
+    }
+
+    .pagination-container {
+        margin-left: 0%;
     }
 }
 

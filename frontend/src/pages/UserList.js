@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import '../styles/two_column_style.css'
+import { PaginationPanel } from "../components/Pagination";
 
 //funkcia pre vyfiltrovanie používateľov na základe filtrov
 export const filterUsers = () => {
@@ -113,7 +114,9 @@ export const UserList = () => {
                     <UserFilter />
                 </div>
                 <div className="list-container">
+                    <PaginationPanel />
                     Here will be shown user list.
+                    <PaginationPanel />
                 </div>
             </div>
         </>

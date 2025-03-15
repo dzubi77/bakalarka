@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import '../styles/two_column_style.css'
+import { ThesisItem } from "../components/Thesis";
+import { PaginationPanel } from "../components/Pagination";
 
 //funkcia pre zobrazenie prác na základe filtrov 
 export const filterThesises = () => {
@@ -140,7 +142,7 @@ export const ThesisFilter = ({ isFinished }) => {
     );
 }
 
-//reprezentuje stránku so zoznamom záverečných prác
+//reprezentuje stránku s filtrom a so zoznamom záverečných prác (ci su ukoncene sa urci parametrom)
 export const ThesisList = ({isFinished}) => {
     return (
         <>
@@ -149,7 +151,9 @@ export const ThesisList = ({isFinished}) => {
                     <ThesisFilter isFinished={isFinished}/>
                 </div>
                 <div className="list-container">
-                    Here will be displayed thesises //with or without filters.
+                    <PaginationPanel />
+                    <ThesisItem />
+                    <PaginationPanel />
                 </div>
             </div>
         </>
