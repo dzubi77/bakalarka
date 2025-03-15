@@ -107,6 +107,15 @@ export const UserFilter = () => {
 
 //reprezentuje stránku so zoznamom používateľov
 export const UserList = () => {
+    const [currentPage, setCurrentPage] = useState(1);
+    const pageCount = 10;
+    
+    const goToPage = (page) => {
+        if (page >= 1 && page <= pageCount) {
+            setCurrentPage(page);
+        }
+    };
+
     return (
         <>
             <div className="main-container">
@@ -114,9 +123,9 @@ export const UserList = () => {
                     <UserFilter />
                 </div>
                 <div className="list-container">
-                    <PaginationPanel />
+                    <PaginationPanel currentPage={currentPage} goToPage={goToPage} pageCount={pageCount} />
                     Here will be shown user list.
-                    <PaginationPanel />
+                    <PaginationPanel currentPage={currentPage} goToPage={goToPage} pageCount={pageCount} />
                 </div>
             </div>
         </>

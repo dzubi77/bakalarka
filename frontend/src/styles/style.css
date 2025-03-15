@@ -33,6 +33,31 @@ html, body {
     margin-left: 10%;
 }
 
+.pagination .page-item.active .page-link {
+    background-color: #ffb81c;
+    color: black;
+}
+
+.pagination .page-link {
+    color: black;
+    border: 1px solid #ccc;
+    background-color: rgb(255, 255, 255);
+    transition: background-color 0.3s ease-in-out;
+}
+
+.pagination .page-link:hover {
+    background-color: rgb(129, 88, 7);
+}
+
+.pagination .page-item.active .page-link:focus,
+.pagination .page-item .page-link:focus {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.pagination .page-item.disabled .page-link {
+    color: rgb(121, 120, 119);
+}
+
 @media (max-width: 768px) {
     .header {
         height: 8%;

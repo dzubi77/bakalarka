@@ -144,16 +144,25 @@ export const ThesisFilter = ({ isFinished }) => {
 
 //reprezentuje stránku s filtrom a so zoznamom záverečných prác (ci su ukoncene sa urci parametrom)
 export const ThesisList = ({isFinished}) => {
+    const [currentPage, setCurrentPage] = useState(1);
+    const pageCount = 10;
+
+    const goToPage = (page) => {
+        if (page >= 1 && page <= pageCount) {
+            setCurrentPage(page);
+        }
+    };
+
     return (
         <>
             <div className="main-container">
                 <div className="filter-container">
-                    <ThesisFilter isFinished={isFinished}/>
+                    <ThesisFilter isFinished={isFinished} />
                 </div>
                 <div className="list-container">
-                    <PaginationPanel />
+                    <PaginationPanel currentPage={currentPage} goToPage={goToPage} pageCount={pageCount} />
                     <ThesisItem />
-                    <PaginationPanel />
+                    <PaginationPanel currentPage={currentPage} goToPage={goToPage} pageCount={pageCount} />
                 </div>
             </div>
         </>
