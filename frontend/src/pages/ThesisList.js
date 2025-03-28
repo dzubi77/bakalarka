@@ -11,10 +11,10 @@ export const filterThesises = () => {
 //reprezentuje panel pre filtráciu záverečných prác
 export const ThesisFilter = ({ isFinished }) => {
     const [showFilters, setShowFilters] = useState(false);
-    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1024);
+    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1260);
 
     const handleResize = () => {
-        setIsSmallScreen(window.innerWidth <= 1024);
+        setIsSmallScreen(window.innerWidth <= 1260);
     };
 
     useEffect(() => {
@@ -28,7 +28,7 @@ export const ThesisFilter = ({ isFinished }) => {
                 {isSmallScreen && (
                     <div className="filter-button-container">
                         <button 
-                            className="btn btn-primary filter-toggle-btn" 
+                            className="btn btn-primary filter-toggle-btn my-btn" 
                             onClick={() => setShowFilters(!showFilters)}
                         >
                             {showFilters ? "Zavrieť filtre" : "Filtre"}
@@ -145,7 +145,7 @@ export const ThesisFilter = ({ isFinished }) => {
 //reprezentuje stránku s filtrom a so zoznamom záverečných prác (ci su ukoncene sa urci parametrom)
 export const ThesisList = ({isFinished}) => {
     const [currentPage, setCurrentPage] = useState(1);
-    const pageCount = 10;
+    const pageCount = 5;
 
     const goToPage = (page) => {
         if (page >= 1 && page <= pageCount) {

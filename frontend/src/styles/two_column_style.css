@@ -25,6 +25,9 @@
     min-width: 70%;
     padding: 20px;
     background: white; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .filter-content-container {
@@ -45,6 +48,7 @@
 .my-btn {
     margin-top: 5px;
     background-color: #EFDCAB;
+    border: none;
     color: black;
 }
 
@@ -59,14 +63,14 @@
     align-items: center;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1260px) {
     .main-container {
         flex-direction: column;
         align-items: center;
     }
 
     .filter-container {
-        width: 100%;
+        width: 50%;
         height: auto; 
         position: relative;
         top: unset;
@@ -76,5 +80,17 @@
 
     .list-container {
         min-width: 100%; 
+    }
+}
+
+@media (max-width: 1024px) {
+    .filter-container {
+        width: 70%;
+    }
+}
+
+@media (max-width: 700px) {
+    .filter-container {
+        width: 100%;
     }
 }

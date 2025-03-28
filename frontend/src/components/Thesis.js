@@ -11,8 +11,8 @@ import React from "react";
 export const ThesisItem = () => {
     return (
         <>
-            <div>
-                hello world
+            <div> 
+                
             </div>
         </>
     );

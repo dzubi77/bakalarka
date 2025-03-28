@@ -29,10 +29,6 @@ html, body {
 }
 
 /*pagination panel*/
-.pagination-container {
-    margin-left: 10%;
-}
-
 .pagination .page-item.active .page-link {
     background-color: #ffb81c;
     color: black;
@@ -76,10 +72,6 @@ html, body {
 
     .logo-container {
         width: 50%; 
-    }
-
-    .pagination-container {
-        margin-left: 0%;
     }
 }
 
