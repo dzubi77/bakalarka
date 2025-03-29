@@ -1,7 +1,7 @@
 package com.example.backendBP.model;
 
 /**
- * Represents a user
+ * Entita reprezentujuca pouzivatela (ucitel, student, externista)
  */
 public class User {
 }
