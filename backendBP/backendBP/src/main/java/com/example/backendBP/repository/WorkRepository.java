@@ -1,6 +1,6 @@
 package com.example.backendBP.repository;
 
-import com.example.backendBP.model.Work;
+import com.example.backendBP.model.thesis.Work;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

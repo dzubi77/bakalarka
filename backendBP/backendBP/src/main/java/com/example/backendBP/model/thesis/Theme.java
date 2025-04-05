@@ -1,5 +1,8 @@
-package com.example.backendBP.model;
+package com.example.backendBP.model.thesis;
 
+import com.example.backendBP.model.enums.Degree;
+import com.example.backendBP.model.enums.StudyField;
+import com.example.backendBP.model.users.Teacher;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,9 +26,15 @@ public class Theme {
     private UUID id;
     private String titleSK;
     private String titleEN;
-    private String degree;
-    private String department;
-    private UserDTO leader;
-    private UserDTO tutor;
+    private Degree degree;
+    private StudyField studyField;
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "leader_id", referencedColumnName = "id")
+    private Teacher leader;
+
+    @ManyToOne
+    @JoinColumn(name = "tutor_id", referencedColumnName = "id")
+    private Teacher tutor;
 }
