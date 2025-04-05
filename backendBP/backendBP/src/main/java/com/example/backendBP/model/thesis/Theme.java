@@ -1,7 +1,7 @@
 package com.example.backendBP.model.thesis;
 
-import com.example.backendBP.model.enums.Degree;
-import com.example.backendBP.model.enums.StudyField;
+import com.example.backendBP.enums.Degree;
+import com.example.backendBP.enums.StudyField;
 import com.example.backendBP.model.users.Teacher;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

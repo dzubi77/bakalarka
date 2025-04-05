@@ -1,8 +1,7 @@
 package com.example.backendBP.model.users;
 
-import com.example.backendBP.model.enums.StudyField;
+import com.example.backendBP.enums.StudyField;
 import com.example.backendBP.model.thesis.InterestForThemes;
-import com.example.backendBP.model.thesis.Theme;
 import com.example.backendBP.model.thesis.Work;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,23 +11,17 @@ import lombok.Setter;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Entita uchovavajuca data o studentoch.
  */
 @Entity
-@Table(name = "students")
+@DiscriminatorValue("STUDENT")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class Student {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
-    private String name;
-    private String surname;
+public class Student extends User {
     private int personalNumber;
     private int yearOfStudy;
     private String group;

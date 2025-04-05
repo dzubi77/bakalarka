@@ -1,4 +1,4 @@
-package com.example.backendBP.model.enums;
+package com.example.backendBP.enums;
 
 public enum StudyField {
     INF, IAST, IAR, MAN, PI, IS, IIS, BI, IM, ASI, PI_ING;
