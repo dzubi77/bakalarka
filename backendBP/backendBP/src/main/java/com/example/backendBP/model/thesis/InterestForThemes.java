@@ -7,11 +7,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
 import java.util.UUID;
 
 /**
- * Asociacna tabulka medzi temami a studentmi.
+ * Asociacna tabulka medzi temami a studentmi, uchovava zaujem studentov o temy.
  */
 @Entity
 @Table(name = "interest_for_themes")
@@ -24,6 +23,11 @@ public class InterestForThemes {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    private List<Student> students;
-    private List<Theme> themes;
+    @ManyToOne
+    @JoinColumn(name = "student_id")
+    private Student student;
+
+    @ManyToOne
+    @JoinColumn(name = "theme_id")
+    private Theme theme;
 }

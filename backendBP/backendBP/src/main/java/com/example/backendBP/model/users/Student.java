@@ -1,6 +1,7 @@
 package com.example.backendBP.model.users;
 
 import com.example.backendBP.model.enums.StudyField;
+import com.example.backendBP.model.thesis.InterestForThemes;
 import com.example.backendBP.model.thesis.Theme;
 import com.example.backendBP.model.thesis.Work;
 import jakarta.persistence.*;
@@ -40,5 +41,5 @@ public class Student {
     private Work work;
 
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
-    private List<Theme> preferredThemes;
+    private List<InterestForThemes> preferredThemes;
 }

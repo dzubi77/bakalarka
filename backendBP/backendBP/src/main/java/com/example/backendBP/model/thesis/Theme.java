@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -37,4 +38,7 @@ public class Theme {
     @ManyToOne
     @JoinColumn(name = "tutor_id", referencedColumnName = "id")
     private Teacher tutor;
+
+    @OneToMany(mappedBy = "theme")
+    private List<InterestForThemes> preferredBy;
 }
