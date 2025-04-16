@@ -1,11 +1,11 @@
+/**
+ * API pre pracu s pouzivatelmi.
+ */
+
 export const getAllUsers = () => {
 
 }
 
-export const getUser = (userId) => {
-
-}
-
-export const updateUser = (userId) => {
+export const updateUser = () => {
 
 }

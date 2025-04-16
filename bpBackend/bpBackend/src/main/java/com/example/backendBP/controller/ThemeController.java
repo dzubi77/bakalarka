@@ -11,22 +11,17 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/themes")
 public class ThemeController {
     private final ThemeService themeService;
 
-    @PostMapping("/themes")
-    public ResponseEntity<Theme> createTheme(@RequestBody Theme theme) {
-        var t = themeService.addTheme(theme);
-        return ResponseEntity.ok(t);
-    }
-
-    @GetMapping("/all_themes")
+    @GetMapping("/all")
     public ResponseEntity<List<Theme>> getAllThemes() {
-        var l = themeService.getAllThemes();
-        return ResponseEntity.ok(l);
+        var list = themeService.getAllThemes();
+        return ResponseEntity.ok(list);
     }
 
-    @PostMapping("/themes/filter")
+    @PostMapping("/filter")
     public ResponseEntity<List<Theme>> getThemesByFilter(@RequestBody ThesisFilter filter) {
         var list = themeService.getFilteredThemes(filter);
         return ResponseEntity.ok(list);

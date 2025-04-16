@@ -2,51 +2,49 @@ package com.example.backendBP;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.ldap.core.LdapTemplate;
+import org.springframework.ldap.core.support.LdapContextSource;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.ldap.authentication.BindAuthenticator;
+import org.springframework.security.ldap.authentication.LdapAuthenticationProvider;
+import org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
+@EnableWebSecurity
 public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.csrf(AbstractHttpConfigurer::disable)
-                .cors(Customizer.withDefaults()).authorizeHttpRequests(request ->
-                        request.requestMatchers("/**").permitAll()
-                                .anyRequest().authenticated()).build();
+        http.authorizeHttpRequests((authorize) -> authorize.anyRequest().permitAll());
+        return http.build();
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    public AuthenticationManager authenticationManager(LdapAuthenticationProvider ldapAuthProvider) {
+        return new ProviderManager(ldapAuthProvider);
     }
 
     @Bean
-    public InMemoryUserDetailsManager userDetailsManager(PasswordEncoder passwordEncoder) {
-        UserDetails user = User.withUsername("user").password(passwordEncoder.encode("user")).roles("USER").build();
-        UserDetails admin = User.withUsername("admin").password(passwordEncoder.encode("admin")).roles("USER", "ADMIN").build();
-        return new InMemoryUserDetailsManager(user, admin);
+    public LdapAuthenticationProvider ldapAuthenticationProvider() {
+        BindAuthenticator authenticator = new BindAuthenticator(ldapContextSource());
+        authenticator.setUserDnPatterns(new String[]{"uid={0},ou=users"});
+        DefaultLdapAuthoritiesPopulator authoritiesPopulator = new DefaultLdapAuthoritiesPopulator(ldapContextSource(), "ou=groups");
+        authoritiesPopulator.setIgnorePartialResultException(true);
+        authoritiesPopulator.setSearchSubtree(true);
+        return new LdapAuthenticationProvider(authenticator, authoritiesPopulator);
     }
 
     @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowCredentials(true);
-        configuration.addAllowedOrigin("http://frontend:3000");
-        configuration.addAllowedOrigin("http://localhost:3000");
-        configuration.addAllowedHeader("*");
-        configuration.addAllowedMethod("*");
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
+    public LdapContextSource ldapContextSource() {
+        LdapContextSource ldapContextSource = new LdapContextSource();
+        ldapContextSource.setUrl("ldap://localhost:389");
+        ldapContextSource.setUserDn("uid=admin,ou=system");
+        ldapContextSource.setPassword("admin");
+        return ldapContextSource;
     }
 }
+

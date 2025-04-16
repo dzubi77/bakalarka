@@ -20,10 +20,6 @@ public class ThemeService {
     private final ThemeRepository themeRepository;
     private final EntityManager em;
 
-    public Theme addTheme(Theme theme) {
-        return themeRepository.save(theme);
-    }
-
     public List<Theme> getAllThemes() {
         return themeRepository.findAll();
     }

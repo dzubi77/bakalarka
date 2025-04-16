@@ -1,7 +1,9 @@
+version: '3.8'
+
 services:
   frontend:
     build:
-      context: ./frontend/ 
+      context: ./frontend/
       dockerfile: Dockerfile
       args:
         REACT_APP_BACKEND_URL: http://localhost:8080
@@ -9,44 +11,43 @@ services:
       - "3000:3000"
     environment:
       - REACT_APP_BACKEND_URL=http://localhost:8080
-    depends_on:
-      - backend
     networks:
       - app-network
 
-  backend:
-    build: 
-      context: ./bpBackend
-      dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
+  database:
+    image: postgres:16
+    container_name: postgres
     environment:
-      - SPRING_PROFILES_ACTIVE=prod
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/bakalarka
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=matko123
-    depends_on:
-      - db
-    networks:
-      - app-network
-
-  db:
-    image: postgres:latest
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=matko123
-      - POSTGRES_DB=bakalarka
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
+      POSTGRES_DB: bakalarka
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: matko123
     ports:
       - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  ldap:
+    image: osixia/openldap:1.5.0
+    container_name: openldap
+    environment:
+      - LDAP_ORGANISATION=ExampleOrg
+      - LDAP_DOMAIN=example.com
+      - LDAP_ADMIN_PASSWORD=admin
+    ports:
+      - "389:389" 
+      - "636:636"   
+    volumes:
+      - ldap_data:/var/lib/ldap
+      - ldap_config:/etc/ldap/slapd.d
     networks:
       - app-network
 
 networks:
   app-network:
-    driver: bridge
 
 volumes:
-  postgres-data:
-    driver: local
+  pg_data:
+  ldap_data:
+  ldap_config:

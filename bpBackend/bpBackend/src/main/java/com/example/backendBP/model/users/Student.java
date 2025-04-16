@@ -1,8 +1,12 @@
 package com.example.backendBP.model.users;
 
-import com.example.backendBP.enums.StudyField;
+import com.example.backendBP.model.enums.StudyField;
 import com.example.backendBP.model.thesis.InterestForThemes;
 import com.example.backendBP.model.thesis.Work;
+import com.example.backendBP.other.Contact;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,17 +26,19 @@ import java.util.List;
 @Getter
 @Setter
 public class Student extends User {
-    private int personalNumber;
-    private int yearOfStudy;
+    private Integer personalNumber;
+    private Integer yearOfStudy;
     private String studyGroup;
     private StudyField studyField;
 
     @ElementCollection
-    private HashMap<String, String> contacts;
+    private List<Contact> contacts;
 
     @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Work work;
 
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("student")
     private List<InterestForThemes> preferredThemes;
 }

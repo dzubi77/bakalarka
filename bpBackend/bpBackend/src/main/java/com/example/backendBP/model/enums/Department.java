@@ -1,4 +1,4 @@
-package com.example.backendBP.enums;
+package com.example.backendBP.model.enums;
 
 public enum Department {
     KI, KIS, KMME, KMMOA, KMNT, KST, KTK;

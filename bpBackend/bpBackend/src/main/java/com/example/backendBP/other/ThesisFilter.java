@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+/**
+ * Trieda uchovava udaje z filtrov pre temy a prace.
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
