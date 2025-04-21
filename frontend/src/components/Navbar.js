@@ -1,15 +1,29 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useUser } from '../service/UserProvider';
 
 //reprezentuje hlavný navigačný panel aplikácie
 export const Navbar = () => {
-    let isLoggedIn = true; //TODO: replace by actual authentication, either LDAP or against DB
+    const { user, logout } = useUser();
     const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const handleLogout = () => {
+        logout();
+    }
+
+    const navigate = useNavigate();
 
     return (
         <>
             <nav className="navbar navbar-expand-lg my-navbar">
                 <div className="container-fluid">
-                    <a className="nav-item btn" href="/">{isLoggedIn ? "Odhlásiť sa" : "Domov"}</a>
+                    <a className="nav-item btn" onClick={() => {
+                        if (user) {
+                            handleLogout();
+                        } else {
+                            navigate('/');
+                        }
+                    }}>{user ? "Odhlásiť sa" : "Domov"}</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -39,7 +53,7 @@ export const Navbar = () => {
                             <li className="nav-item">
                                 <a className="nav-link active" href="/finished_thesises">Vyhľadaj prácu</a>
                             </li>
-                            {isLoggedIn && <li className="nav-item">
+                            {user && <li className="nav-item">
                                 <a className="nav-link active" href="/my_profile">Môj profil</a>
                             </li>}
                         </ul>

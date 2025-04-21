@@ -18,6 +18,5 @@ import lombok.Setter;
 public class Extern extends Teacher {
     private String companyName;
     private String address;
-    private String username;
     private String password;
 }

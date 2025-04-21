@@ -19,10 +19,10 @@ services:
     container_name: postgres
     environment:
       POSTGRES_DB: bakalarka
-      POSTGRES_USER: postgres
+      POSTGRES_USER: admin
       POSTGRES_PASSWORD: matko123
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - pg_data:/var/lib/postgresql/data
     networks:

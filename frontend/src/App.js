@@ -10,6 +10,7 @@ import { UserList } from "./pages/UserList";
 import { Footer } from "./components/Footer";
 import { GeneralThesis } from "./components/Thesis";
 import { DocumentsPage, FileExport } from "./pages/Documents";
+import { PrivateRoute } from "./components/PrivateRoute.js";
 
 function App() {
   return (
@@ -18,18 +19,17 @@ function App() {
         <Header />
         <Navbar />
         <Routes>
-          {/*add PrivateRoute component :D*/}
           <Route path="/" element={<LoginPage />} />
-          <Route path="/documents" element={<DocumentsPage />} />
-          <Route path="/export_files" element={<FileExport />} />
+          <Route path="/documents" element={<PrivateRoute><DocumentsPage /></PrivateRoute>} />
+          <Route path="/export_files" element={<PrivateRoute><FileExport /></PrivateRoute>} />
         
-          <Route path="/thesises" element={<ThesisList isFinished={false} />} />
-          <Route path="/thesises/:thesisId" element={<GeneralThesis />} />
-          <Route path="/finished_thesises" element={<ThesisList isFinished={true} />} />
-          <Route path="/my_thesis" element={<MyThesis />} />
+          <Route path="/thesises" element={<PrivateRoute><ThesisList isFinished={false} /></PrivateRoute>} />
+          <Route path="/thesises/:thesisId" element={<PrivateRoute><GeneralThesis /></PrivateRoute>} />
+          <Route path="/finished_thesises" element={<PrivateRoute><ThesisList isFinished={true} /></PrivateRoute>} />
+          <Route path="/my_thesis" element={<PrivateRoute><MyThesis /></PrivateRoute>} />
 
-          <Route path="/my_profile" element={<MyProfile />} />
-          <Route path="/users" element={<UserList />} />
+          <Route path="/my_profile" element={<PrivateRoute><MyProfile /></PrivateRoute>} />
+          <Route path="/users" element={<PrivateRoute><UserList /></PrivateRoute>} />
         </Routes>
         <Footer />
       </div>
