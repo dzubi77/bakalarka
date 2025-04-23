@@ -14,6 +14,18 @@ services:
     networks:
       - app-network
 
+  backend:
+    build: ./bpBackend/
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/bakalarka
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=matko123
+    networks:
+      - app-network
+
   database:
     image: postgres:16
     container_name: postgres
