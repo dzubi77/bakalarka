@@ -1,4 +1,3 @@
-/* homepage style */
 html, body {
     height: 100%;
 }
@@ -28,7 +27,6 @@ html, body {
     object-fit: cover;
 }
 
-/*pagination panel*/
 .pagination .page-item.active .page-link {
     background-color: #ffb81c;
     color: black;
@@ -75,7 +73,6 @@ html, body {
     }
 }
 
-/*navbar style*/
 .my-navbar {
     background-color: #443627; 
     padding: 10px 20px; 
@@ -131,8 +128,6 @@ html, body {
     filter: invert(1); 
 }
 
-
-/*footer style*/
 .footer-container {
     background-color: gray;
     display: flex;

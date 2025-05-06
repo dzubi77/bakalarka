@@ -2,7 +2,7 @@ import React from "react";
 import logo from '../img/FRI_H_T_sk_biele.png';
 import '../styles/style.css';
 
-//reprezentuje hlavicku stranky (s logom fakulty)
+//reprezentuje hlavičku stránky (s logom fakulty)
 export const Header = () => {
     return (
         <>

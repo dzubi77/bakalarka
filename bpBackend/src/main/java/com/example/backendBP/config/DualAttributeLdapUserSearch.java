@@ -1,4 +1,4 @@
-package com.example.backendBP;
+package com.example.backendBP.config;
 
 import org.springframework.ldap.core.ContextMapper;
 import org.springframework.ldap.core.DirContextOperations;

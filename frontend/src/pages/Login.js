@@ -50,7 +50,6 @@ export const LoginPage = () => {
                         </table>
                         <div className="login-form-buttons">
                             <button className="btn btn-primary" type="submit">Prihlásiť sa</button>
-                            <a href="/">Zabudol som heslo{/*link na obnovenie hesla*/}</a>
                         </div>
                     </form>
                 </div>

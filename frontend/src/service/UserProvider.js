@@ -26,16 +26,17 @@ export function UserProvider({ children }) {
                 },
                 body: JSON.stringify({ username, password })
             });
-            console.log(response.status);
+        
             if (response.ok) {
                 setError('');
                 const data = await response.json();
-                const userData = { };
-                const role = { };
+                const role = data.userType;
+                const userData = data;     
+        
                 localStorage.setItem('user', JSON.stringify(userData));
                 localStorage.setItem('role', role);
                 setUser(userData);
-                navigate('/courses');
+                navigate('/my_profile');
             } else {
                 const errorData = await response.json();
                 setError(errorData.message || 'Prihlásenie zlyhalo!');

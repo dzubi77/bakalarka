@@ -4,7 +4,7 @@ import React from "react";
 export const PrivateRoute = ({ children }) => {
     return localStorage.getItem('user') 
         ? children : <>
-            Pre pristup do tejto casti je potrebne
+            Pre prístup do tejto časti je potrebné
             <a href="/">sa prihlásiť!</a> 
         </>;
 }

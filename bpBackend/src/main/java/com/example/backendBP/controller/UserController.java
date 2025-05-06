@@ -1,24 +1,28 @@
 package com.example.backendBP.controller;
 
-import com.example.backendBP.model.users.User;
 import com.example.backendBP.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/users")
+@CrossOrigin("http://localhost:3000")
 public class UserController {
     private final UserService userService;
 
     @GetMapping("/all")
-    public ResponseEntity<List<User>> getAllUsers() {
+    public ResponseEntity<?> getAllUsers() {
         var list = userService.getUsers();
         return ResponseEntity.ok(list);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getUserById(@PathVariable UUID id) {
+        var u = userService.getUserById(id);
+        return u != null ? ResponseEntity.ok(u) : ResponseEntity.notFound().build();
     }
 }

@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,6 +20,12 @@ public class WorkController {
     public ResponseEntity<List<Work>> getAllWorks() {
         var list = workService.getAllWorks();
         return ResponseEntity.ok(list);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Work> getWorkById(@PathVariable UUID id) {
+        var work = workService.getWorkById(id);
+        return work != null ? ResponseEntity.ok(work) : ResponseEntity.notFound().build();
     }
 
     @PostMapping("/filter")

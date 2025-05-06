@@ -5,12 +5,17 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 public class ExternDTO {
+    private UUID id;
     private String name;
     private String surname;
+    private String userType = "extern";
+
     private String company;
     private String address;
     private String email;
@@ -18,6 +23,7 @@ public class ExternDTO {
     private String degree2;
 
     public ExternDTO(Extern extern) {
+        this.id = extern.getId();
         this.name = extern.getName();
         this.surname = extern.getSurname();
         this.company = extern.getCompanyName();

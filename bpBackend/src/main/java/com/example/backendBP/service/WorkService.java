@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -16,6 +17,10 @@ public class WorkService {
 
     public List<Work> getAllWorks() {
         return workRepository.findAll();
+    }
+
+    public Work getWorkById(UUID id) {
+        return workRepository.findById(id).orElse(null);
     }
 
     public List<Work> getWorksByFilter(ThesisFilter filter) {

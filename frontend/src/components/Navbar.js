@@ -12,6 +12,7 @@ export const Navbar = () => {
     }
 
     const navigate = useNavigate();
+    const role = localStorage.getItem('role');
 
     return (
         <>
@@ -37,14 +38,26 @@ export const Navbar = () => {
                                 onMouseEnter={() => setDropdownOpen(true)}
                                 onMouseLeave={() => setDropdownOpen(false)}
                             >
-                                <a class="nav-link dropdown-toggle active" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a className="nav-link dropdown-toggle active" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Témy
                                 </a>
                                 <ul className={`dropdown-menu ${dropdownOpen ? "show" : ""}`}>
-                                    <li><a className="dropdown-item" href="/my_thesis">Priradená téma</a></li>
+                                    {role === 'student' && (
+                                        <li>
+                                            <a className="dropdown-item" href="/my_thesis">Priradená téma</a>
+                                        </li>
+                                    )}
                                     <li><a className="dropdown-item" href="/thesises">Vyhľadaj tému</a></li>
-                                    <li><a className="dropdown-item" href="/export_files">Odovzdanie súborov</a></li>
-                                    <li><a className="dropdown-item" href="/">Informácie ku štátnej skúške</a></li>
+                                    {role === 'student' && (
+                                        <li>
+                                            <a className="dropdown-item" href="/export_files">Odovzdanie súborov</a>
+                                        </li>
+                                    )}
+                                    {role === 'student' && (
+                                        <li>
+                                            <a className="dropdown-item" href="/">Informácie ku štátnej skúške</a>
+                                        </li>
+                                    )}
                                 </ul>
                             </li>
                             <li className="nav-item">

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -22,6 +23,10 @@ public class ThemeService {
 
     public List<Theme> getAllThemes() {
         return themeRepository.findAll();
+    }
+
+    public Theme getThemeById(UUID id) {
+        return themeRepository.findById(id).orElse(null);
     }
 
     public List<Theme> getFilteredThemes(ThesisFilter filter) {

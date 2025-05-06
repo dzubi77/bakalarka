@@ -11,17 +11,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 public class StudentDTO {
+    private UUID id;
     private String name;
     private String surname;
+    private String userType = "student";
     private Integer personalNumber;
     private Integer yearOfStudy;
     private String studyGroup;
-    private StudyField studyField;
+    private String studyField;
 
     private List<Contact> contacts;
 
@@ -32,12 +35,13 @@ public class StudentDTO {
     private List<InterestForThemes> preferredThemes;
 
     public StudentDTO(Student student) {
+        this.id = student.getId();
         this.name = student.getName();
         this.surname = student.getSurname();
         this.personalNumber = student.getPersonalNumber();
         this.yearOfStudy = student.getYearOfStudy();
         this.studyGroup = student.getStudyGroup();
-        this.studyField = student.getStudyField();
+        this.studyField = student.getStudyField().getFullName();
         this.contacts = student.getContacts();
         this.preferredThemes = student.getPreferredThemes();
         this.work = student.getWork();

@@ -1,6 +1,7 @@
 package com.example.backendBP.model.thesis;
 
 import com.example.backendBP.model.users.Student;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,9 +26,11 @@ public class InterestForThemes {
 
     @ManyToOne
     @JoinColumn(name = "student_id")
+    @JsonIgnoreProperties({"preferredThemes", "work"})
     private Student student;
 
     @ManyToOne
     @JoinColumn(name = "theme_id")
+    @JsonIgnoreProperties({"preferredBy"})
     private Theme theme;
 }

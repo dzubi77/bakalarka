@@ -45,6 +45,10 @@ public class Theme {
     private Teacher tutor;
 
     @OneToMany(mappedBy = "theme")
-    @JsonIgnoreProperties("theme")
+    @JsonIgnoreProperties({"theme", "student"})
     private List<InterestForThemes> preferredBy;
+
+    @OneToOne(mappedBy = "theme", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("theme")
+    private Work work;
 }

@@ -5,6 +5,8 @@ import com.example.backendBP.model.thesis.Theme;
 import com.example.backendBP.model.thesis.Work;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,14 +36,6 @@ public class Teacher extends User {
 
     @ElementCollection
     private List<String> office;
-
-    @OneToMany(mappedBy = "leader", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("leader")
-    private List<Work> worksLed;
-
-    @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("tutor")
-    private List<Work> worksTutored;
 
     @OneToMany(mappedBy = "leader")
     @JsonIgnoreProperties("leader")

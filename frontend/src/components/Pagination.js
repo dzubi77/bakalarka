@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/style.css";
 
+//reprezentuje stránkovanie položiek zoznamu
 export const PaginationPanel = ({ currentPage, goToPage, pageCount }) => {
     return (
         <>

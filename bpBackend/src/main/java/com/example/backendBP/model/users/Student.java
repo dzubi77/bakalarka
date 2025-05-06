@@ -35,7 +35,7 @@ public class Student extends User {
     private List<Contact> contacts;
 
     @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonIgnoreProperties("student")
     private Work work;
 
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)

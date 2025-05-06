@@ -1,0 +1,91 @@
+.documents-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .documents-container button, .documents-container a {
+    background-color: #E9A319;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .documents-container button:hover, .documents-container a:hover {
+    background-color: #A86523;
+  }
+  
+  section {
+    background-color: #f4f4f9;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .important-links,
+  .instructions-for-students,
+  .general-instructions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; 
+  }
+  
+  .important-links button,
+  .instructions-for-students a
+  .general-instructions a {
+    width: 100%; 
+  }
+  
+  @media (min-width: 768px) {
+    .documents-container {
+      flex-direction: row;
+      gap: 3rem;
+      justify-content: space-between;
+    }
+  
+    section {
+      flex: 1;
+      max-width: 30%;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .documents-container {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    section {
+      width: 100%;
+    }
+  
+    button, a {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .important-links {
+      flex-direction: column; 
+      width: 100%;
+      padding: 1rem;
+      background-color: #f4f4f9;
+      border-radius: 8px;
+    }
+  
+    .important-links button {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  }
+  

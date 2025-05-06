@@ -1,0 +1,131 @@
+.thesis-main-container {
+    background-color: #fdfdfd;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 16px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.thesis-main-container:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.thesis-content-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.thesis-info-left-container,
+.thesis-info-right-container {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.thesis-info-left-container h4 {
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.thesis-info-left-container p,
+.thesis-info-right-container p {
+    margin: 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.thesis-info-left-container p strong,
+.thesis-info-right-container p strong {
+    color: #333;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .thesis-content-container {
+        flex-direction: column;
+    }
+
+    .thesis-info-left-container,
+    .thesis-info-right-container {
+        flex: 1 1 100%;
+    }
+
+    .button-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .button-container .btn {
+        width: 100%;
+    }
+}
+
+.main-container {
+    padding: 16px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.content-inner-container {
+    background-color: #f9f9f9;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.content-inner-container h5 {
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.content-inner-container p {
+    margin: 8px 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.content-inner-container p strong {
+    font-weight: bold;
+}
+
+.content-inner-container p {
+    font-size: 1rem;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.button-container .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    min-width: 160px;
+    text-align: center;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+}

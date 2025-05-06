@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,6 +20,12 @@ public class ThemeController {
     public ResponseEntity<List<Theme>> getAllThemes() {
         var list = themeService.getAllThemes();
         return ResponseEntity.ok(list);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Theme> getThemeById(@PathVariable UUID id) {
+        var t = themeService.getThemeById(id);
+        return t != null ? ResponseEntity.ok(t) : ResponseEntity.notFound().build();
     }
 
     @PostMapping("/filter")
